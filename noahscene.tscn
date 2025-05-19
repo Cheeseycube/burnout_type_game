@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://c031ok78vjlrr"]
+[gd_scene load_steps=5 format=3 uid="uid://c031ok78vjlrr"]
+
+[ext_resource type="Script" uid="uid://dridevpt7ahj5" path="res://drivecar.gd" id="1_c6fue"]
+[ext_resource type="Texture2D" uid="uid://bmu30oh1kd3b5" path="res://CAR Model/Lamborginhi Aventador_diffuse.jpeg" id="1_pfgo0"]
+[ext_resource type="ArrayMesh" uid="uid://cdjnfy173pvse" path="res://CAR Model/Lamborghini_Aventador.obj" id="2_c6fue"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lilb6"]
+albedo_texture = ExtResource("1_pfgo0")
 
 [node name="Node3D" type="Node3D"]
+
+[node name="Lambo" type="Node3D" parent="."]
+script = ExtResource("1_c6fue")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Lambo"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_lilb6")
+mesh = ExtResource("2_c6fue")
+skeleton = NodePath("../..")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 0, 6.84178e-08, 0.782608, 0.622515, 5.44219e-08, 0.622515, -0.782608, 0, 1.6589, -3.1381)
