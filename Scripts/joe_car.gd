@@ -11,6 +11,6 @@ func _ready():
 func _physics_process(_delta):
 	var steering_input = Input.get_axis("ui_right", "ui_left")
 	var torque = Vector3(0, steering_input * rotation_speed, 0)
-	print(torque)
+	#print(torque)
 	apply_torque(torque)
 	
